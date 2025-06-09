@@ -9,14 +9,15 @@ This is a command line tool that converts a given number into its English word r
 
 ## Building and testing the application
 
-- **Using Makefile** <br>
+#### Using Makefile
+
 To build the application using the make tool, and run all the unit tests, run the following command in the root of the project:
 
 ```sh
 make
 ```
 
-To run jsut the unit tests, use the following command:
+To run just the unit tests, use the following command:
 
 ```sh
 make test
@@ -32,4 +33,12 @@ To clean up the binaries, using the follwing command:
 
 ```sh
 make clean
+```
+
+#### Using Go (without make tool)
+
+To run build the binary, without using the Makefile, run the following commands in the terminal
+
+```sh
+go build -o bin/numbers-to-words ./src
 ```
