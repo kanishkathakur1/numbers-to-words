@@ -14,7 +14,7 @@ var onesPlace = map[int]string{
 
 // Creating a map to bind the ten's place integers to their string value
 var tensPlace = map[int]string{
-	2: "twenty", 3: "thirty", 4: "fourty",
+	2: "twenty", 3: "thirty", 4: "forty",
 	5: "fifty", 6: "sixty", 7: "seventy",
 	8: "eighty", 9: "ninety",
 }
