@@ -22,5 +22,11 @@ func main() {
 		log.Fatal("Please provide a valid integer\n", err)
 	}
 
-	fmt.Printf("Your arg is: %v, of type: %T", num, num)
+	words, err := parseNumToWords(num)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(words)
 }
