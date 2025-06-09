@@ -1,7 +1,14 @@
 # Creating variables for dir and name of binary
-BINARY_NAME=numbers-to-words
+BINARY_NAME_base=numbers-to-words
 
 BIN_DIR=bin
+
+# Creating the required binary name for windows and other Operating Systems
+ifeq ($(GOOS),windows)
+	BINARY_NAME := $(BINARY_NAME_BASE).exe
+else
+	BINARY_NAME := $(BINARY_NAME_BASE)
+endif
 
 # Setting default make
 all: test build

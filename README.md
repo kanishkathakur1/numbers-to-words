@@ -7,7 +7,7 @@ This is a command line tool that converts a given number into its English word r
 - Go (version 1.24 used for the project)
 - Make (optional)
 
-## Building and testing the application
+## Building and testing the application
 
 #### Using Makefile
 
