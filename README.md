@@ -2,7 +2,7 @@
 
 This is a command line tool that converts a given number into its English word representation. The application is written in Golang, and can be compiled into a binary and executed that way. 
 
-Currently, the bin folder has a binary that works for MacOS on ARM-based chips (M1, M2, M3 etc.). If you are using a different operating system and hardware, please remove this manually or with the $${\color{green}make clean}$$ command and, follow the set-up/build steps to build the application for your system.
+Currently, the bin folder has a binary that works for MacOS on ARM-based chips (M1, M2, M3 etc.). If you are using a different operating system and hardware, please remove this manually or with the ```diff + make clean ```command and, follow the set-up/build steps to build the application for your system.
 
 ## Prerequisites
 
