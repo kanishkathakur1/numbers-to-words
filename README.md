@@ -20,7 +20,7 @@ A command-line tool, written in Go, that converts a given number (from 0 to 100,
 
 This project uses a Makefile to simplify building and testing. This is the recommended way to get started.
 
-#### 1. Clone the repository (or unzip the submission folder
+#### 1. Clone the repository (or unzip the submission folder)
 #### 2. Build the application
 From the project root, run the make command. This will run the tests and compile the binary into the ``` /bin ``` directory.
 
@@ -30,7 +30,7 @@ make
 
 ## Usage
 
-Once the application is built, you can run it from the command line. The executable will be located at ./bin/numbers-to-words.
+Once the application is built, you can run it from the command line. The executable will be located at ./bin/numbers-to-words (the executable will end with .exe, in windows).
 
 #### Command Syntax
 
