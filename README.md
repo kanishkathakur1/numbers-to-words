@@ -99,3 +99,18 @@ A few technical decisions were made during the development of this tool:
 - **Testing:** The project includes comprehensive unit testing (```parse_num_test.go```) to validate the core conversion logic.
 - **Code Structure:** The core conversion logic (```parse_num.go```) is decoupled from the command-line interface (```main.go```), making the logic reusable and easy to test in isolation.
 - **Dependency-Free:** To maximise simplicity and long-term stability, the project relies solely on the Go standard library, avoiding external dependencies.
+
+
+## Project Structure
+
+The project follows a standard Go application layout:
+
+* `bin/`: This directory contains the compiled application binaries.
+* `src/`: This directory holds all the Go source code for the project.
+    * `main.go`: The main entry point for the application.
+    * `parse_num.go`: Source file containing number parsing logic.
+    * `parse_num_test.go`: Unit tests for the number parsing functionality.
+* `Dockerfile`: Defines the instructions for building the application into a Docker container.
+* `go.mod`: The Go modules file that manages the project's dependencies.
+* `Makefile`: Contains helper commands for building, testing, and running the project.
+* `README.md`: Project documentation.
