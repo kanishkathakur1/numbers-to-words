@@ -1,62 +1,101 @@
-# Numbers to Words CLI, in Go (take home task)
+# Numbers to Words CLI
 
-This is a command line tool that converts a given number into its English word representation. The application is written in Golang, and can be compiled into a binary and executed that way. 
+A command-line tool, written in Go, that converts a given number (from 0 to 100,000) into its British English word representation, including correct commas and "and" separators.
 
-Currently, the bin folder has a binary that works for MacOS on ARM-based chips (M1, M2, M3 etc.). If you are using a different operating system and hardware, please remove this manually or with the **``` make clean ```** command and, follow the set-up/build steps to build the application for your system.
+## Features
+
+- Converts numbers from 0 to 100,000.
+- Follows British English conventions (e.g., "one hundred and one", "two thousand, five hundred).
+- Provides multiple ways to build and run: Make, Docker, or native Go commands.
+- Comrehensive unit tests.
 
 ## Prerequisites
 
-- Go (version 1.24 used for the project)
-- Make (optional)
-- Docker (optional)
+- **Go**: Version 1.22+
+- **Make**: Recommended for easy building and testing.
+- **Docker**: Required for containerised method.
 
-## Building and testing the application
+## Getting Started
 
-### Using Makefile (recommended)
+This project uses a Makefile to simplify building and testing. This is the recommended way to get started.
 
-To build the application using the make tool, and run all the unit tests, run the following command in the root of the project:
+#### 1. Clone the repository (or unzip the submission folder
+#### 2. Build the application
+From the project root, run the make command. This will run the tests and compile the binary into the ``` /bin ``` directory.
 
 ```sh
 make
 ```
 
-To run just the unit tests, use the following command:
+## Usage
+
+Once the application is built, you can run it from the command line. The executable will be located at ./bin/numbers-to-words.
+
+#### Command Syntax
 
 ```sh
-make test
+./bin/numbers-to-words [number]
 ```
 
-To just build the application, use the following command:
+#### Examples
 
 ```sh
-make build
+./bin/numbers-to-words 42
+# Output: forty-two
+
+./bin/numbers-to-words 12345
+# Output: twelve thousand, three hundred and forty-five
+
+./bin/numbers-to-words 99009
+# Output: ninety-nine thousand and nine
 ```
 
-To clean up the binaries, using the follwing command:
+To clean up the binary, use the following command:
 
 ```sh
 make clean
 ```
 
-### Using Docker
+## Alternative Build & Run Methods
 
-This application can also be run using docker, which provides an isolated and consistent environment. The Dockerfile is provided in the root of the directory, so simply run the following command to build the image (make sure that docker is running first):
+### Using Docker
+The application can be built and run as a self-contained Docker image.
+
+#### 1. Build the image:
 
 ```sh
 docker build -t numbers-to-words-app .
 ```
-This will create an image called numbers-to-words-app. To run the application use the follwing command:
+#### 2. Run the container:
+The --rm flag automatically removes the container after it exits.
 
 ```sh
-docker run --rm numbers-to-words-app [arg]
+docker run --rm numbers-to-words-app 54321
+# Output: fifty-four thousand, three hundred and twenty-one
 ```
-Replace the **'[arg]'** with your number that you want to pass as the argument. The --rm flag cleans up the container after use.
 
+### Using Go Commands Directly
 
-### Using Go (without make tool)
+If you don't have make, you can use the native Go toolchain.
 
-To run build the binary, without using the Makefile, run the following commands in the terminal
+#### 1. Run the unit tests
+
+```sh
+go test -v ./src/... 
+```
+
+#### 2. Build the binary:
 
 ```sh
 go build -o bin/numbers-to-words ./src
 ```
+
+### Notes for Reviewer (Design Decisions)
+
+A few technical decisions were made during the development of this tool:
+
+- **Makefile:** A cross-platform ```Makefile``` is provided to automate builds and tests. It automatically handles the ```.exe``` extension on Windows.
+- **Docker:** A multi-stage ```Dockerfile``` is used to create a minimal and secure final image, separating the build environment from the runtime environment.
+- **Testing:** The project includes comprehensive unit testing (```parse_num_test.go```) to validate the core conversion logic.
+- **Code Structure:** The core conversion logic (```parse_num.go```) is decoupled from the command-line interface (```main.go```), making the logic reusable and easy to test in isolation.
+- **Dependency-Free:** To maximise simplicity and long-term stability, the project relies solely on the Go standard library, avoiding external dependencies.
