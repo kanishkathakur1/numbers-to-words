@@ -8,7 +8,7 @@ A command-line tool, written in Go, that converts a given number (from 0 to 100,
 - Converts numbers from 0 to 100,000.
 - Follows British English conventions (e.g., "one hundred and one", "two thousand, five hundred).
 - Provides multiple ways to build and run: Make, Docker, or native Go commands.
-- Comrehensive unit tests.
+- Comprehensive unit tests.
 
 ## Prerequisites
 
@@ -49,6 +49,10 @@ Once the application is built, you can run it from the command line. The executa
 
 ./bin/numbers-to-words 99009
 # Output: ninety-nine thousand and nine
+
+./bin/numbers-to-words -1
+# yyyy/mm/dd HH:mm:ss input out of range: Please provide an integer from 0 to 100000
+# exit status 1
 ```
 
 To clean up the binary, use the following command:

@@ -92,7 +92,7 @@ func parseNumToWords(num int) (string, error) {
 
 	// Returning an error if the number is out of range
 	if num > 100000 || num < 0 {
-		return "", fmt.Errorf("input out of range: Please provide an integer from 0 to 99")
+		return "", fmt.Errorf("input out of range: Please provide an integer from 0 to 100000")
 	}
 
 	// Handling '0' early
