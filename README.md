@@ -12,7 +12,7 @@ Currently, the bin folder has a binary that works for MacOS on ARM-based chips (
 
 ## Building and testing the application
 
-### Using Makefile
+### Using Makefile (recommended)
 
 To build the application using the make tool, and run all the unit tests, run the following command in the root of the project:
 
@@ -37,6 +37,21 @@ To clean up the binaries, using the follwing command:
 ```sh
 make clean
 ```
+
+### Using Docker
+
+This application can also be run using docker, which provides an isolated and consistent environment. The Dockerfile is provided in the root of the directory, so simply run the following command to build the image (make sure that docker is running first):
+
+```sh
+docker build -t numbers-to-words-app .
+```
+This will create an image called numbers-to-words-app. To run the application use the follwing command:
+
+```sh
+docker run --rm numbers-to-words-app [arg]
+```
+Replace the **'[arg]'** with your number that you want to pass as the argument. The --rm flag cleans up the container after use.
+
 
 ### Using Go (without make tool)
 
