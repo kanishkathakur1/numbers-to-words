@@ -1,7 +1,9 @@
 # Creating variables for dir and name of binary
-BINARY_NAME_base=numbers-to-words
+BINARY_NAME_BASE=numbers-to-words
 
 BIN_DIR=bin
+
+SRC_DIR=src
 
 # Creating the required binary name for windows and other Operating Systems
 ifeq ($(GOOS),windows)
@@ -16,7 +18,7 @@ all: test build
 # Building binary
 build:
 	@echo "Building binary..."
-	@go build -o $(BIN_DIR)/$(BINARY_NAME) ./src
+	@go build -C $(SRC_DIR) -o ../$(BIN_DIR)/$(BINARY_NAME)
 
 # Running unit tests
 test:
@@ -26,7 +28,7 @@ test:
 # Cleaning up the binary
 clean:
 	@echo "Cleaning up..."
-	@rm -rf $(BIN_DIR)
+	@rm -r $(BIN_DIR)/*
 
 # Preventing conflicts
 .PHONY: all build test clean
