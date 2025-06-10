@@ -18,6 +18,7 @@ all: test build
 # Building binary
 build:
 	@echo "Building binary..."
+	@mkdir -p $(BIN_DIR)
 	@go build -C $(SRC_DIR) -o ../$(BIN_DIR)/$(BINARY_NAME)
 
 # Running unit tests
